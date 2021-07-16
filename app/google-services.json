@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "353978385071",
+    "project_id": "foodsaver-5ccab",
+    "storage_bucket": "foodsaver-5ccab.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:353978385071:android:bd1e92e39b9da42db04a5a",
+        "android_client_info": {
+          "package_name": "com.cdac.foodsaver"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "353978385071-j8r40efbj27tlsht1aqinpf8so00e50v.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCM6BXZMH6SY-eAplDaDRivpfKhUqvhm_E"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "353978385071-j8r40efbj27tlsht1aqinpf8so00e50v.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
