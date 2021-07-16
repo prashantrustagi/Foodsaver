@@ -1,5 +1,10 @@
 <resources>
-    <string name="app_name">Foodsaver</string>
-    <string name="button1">Button1</string>
-    <string name="button2">Button2</string>
+    <array name="roles">
+        <item>--Select--</item>
+        <item>Restaurant</item>
+        <item>NGO</item>
+        <item>Logistics</item>
+
+
+    </array>
 </resources>
