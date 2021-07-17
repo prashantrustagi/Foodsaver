@@ -1,6 +1,6 @@
 <resources>
     <array name="roles">
-        <item>--Select--</item>
+        <item>Select</item>
         <item>Restaurant</item>
         <item>NGO</item>
         <item>Logistics</item>
