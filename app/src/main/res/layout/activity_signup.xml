@@ -12,12 +12,13 @@
         android:layout_width="275dp"
         android:layout_height="42dp"
         android:layout_marginStart="46dp"
-        android:layout_marginTop="48dp"
-        android:layout_marginEnd="72dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="46dp"
         android:fontFamily="@font/montserrat"
-        android:text=" Create an account"
+        android:text="Create an account"
         android:textColor="#1C1C1C"
         android:textSize="24sp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -25,34 +26,34 @@
 
     <TextView
         android:id="@+id/textView2"
-        android:layout_width="276dp"
+        android:layout_width="match_parent"
         android:layout_height="47dp"
-        android:layout_marginStart="44dp"
-        android:layout_marginTop="108dp"
-        android:layout_marginEnd="73dp"
+        android:layout_marginStart="46dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="46dp"
         android:fontFamily="@font/montserrat"
         android:text="Welcome friend, enter your details so lets get started"
         android:textColor="#3D3D3D"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.069"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
 
     <TextView
         android:id="@+id/textView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="44dp"
-        android:layout_marginTop="180dp"
-        android:layout_marginEnd="281dp"
+        android:layout_marginStart="46dp"
+        android:layout_marginEnd="46dp"
+        android:layout_marginTop="20dp"
         android:fontFamily="@font/montserrat"
         android:text="User Type"
         android:textColor="#3D3D3D"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
     <TextView
         android:id="@+id/textView4"
@@ -136,7 +137,7 @@
         android:layout_width="334dp"
         android:layout_height="51dp"
         android:layout_marginStart="23dp"
-        android:layout_marginTop="524dp"
+        android:layout_marginTop="532dp"
         android:layout_marginEnd="23dp"
         android:background="@drawable/text_back"
         android:ems="10"
@@ -145,7 +146,7 @@
         android:inputType="textPersonName"
         android:paddingLeft="15dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.451"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -154,12 +155,13 @@
         android:layout_width="350dp"
         android:layout_height="55dp"
         android:layout_marginStart="23dp"
-        android:layout_marginTop="28dp"
+        android:layout_marginTop="32dp"
         android:layout_marginEnd="23dp"
         android:background="@drawable/button_back"
         android:fontFamily="@font/montserrat"
         android:text="Create an account"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.933"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName4" />
 
@@ -191,11 +193,11 @@
 
     <Spinner
         android:id="@+id/spinner"
-        android:layout_width="334dp"
+        android:layout_width="match_parent"
         android:layout_height="51dp"
-        android:layout_marginStart="23dp"
+        android:layout_marginStart="46dp"
         android:layout_marginTop="16dp"
-        android:layout_marginEnd="23dp"
+        android:layout_marginEnd="46dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.461"
         app:layout_constraintStart_toStartOf="parent"
