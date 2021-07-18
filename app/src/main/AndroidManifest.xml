@@ -1,30 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.cdac.foodsaver">
+
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:roundIcon="@mipmap/ic_launcher_round"
-        android:usesCleartextTraffic="true"
         android:supportsRtl="true"
-        android:theme="@style/Theme.Foodsaver">
-        <activity android:name=".signup">
-
-
-        </activity>
-        <activity android:name=".Settings"></activity>
+        android:theme="@style/Theme.Foodsaver"
+        android:usesCleartextTraffic="true">
+        <activity android:name=".addFoodItem"></activity>
+        <activity android:name=".signup"></activity>
+        <activity android:name=".Settings" />
         <activity android:name=".Profile" />
         <activity android:name=".Privacy" />
         <activity android:name=".Orders" />
         <activity android:name=".Help" />
-
         <activity android:name=".ViewAllActivity" />
-        <activity android:name=".Login">
-
-        </activity>
-
+        <activity android:name=".Login"></activity>
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -32,6 +27,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
