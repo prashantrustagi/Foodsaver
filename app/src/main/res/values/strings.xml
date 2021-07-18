@@ -7,4 +7,17 @@
 
 
     </array>
+
+    <array name="roles1">
+        <item>Select</item>
+        <item>Restaurant</item>
+        <item>NGO</item>
+        <item>Logistics</item>
+
+
+    </array>
+    <string name="app_name">Food Order</string>
+    <string name="open">Open</string>
+    <string name="close">Close</string>
+
 </resources>
