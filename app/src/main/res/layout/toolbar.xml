@@ -27,7 +27,7 @@
         android:layout_marginEnd="15dp"
         android:gravity="center|center_vertical"
         android:text="All Orders"
-        android:textColor="#D06EE1"
+        android:textColor="@color/black"
         android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
