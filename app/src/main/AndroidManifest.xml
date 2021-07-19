@@ -11,25 +11,25 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Foodsaver"
         android:usesCleartextTraffic="true">
-        <activity android:name=".addFoodItem"></activity>
-
-        <activity android:name=".Settings" />
-        <activity android:name=".Profile" />
-        <activity android:name=".Privacy" />
-        <activity android:name=".Orders" />
-        <activity android:name=".Help" />
-        <activity android:name=".ViewAllActivity" />
-        <activity android:name=".Login"></activity>
-        <activity android:name=".MainActivity">
+        <activity android:name=".welcomeScreen"></activity>
+        <activity android:name=".splashScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".signup">
-
-        </activity>
+        <activity android:name=".createFoodListing" />
+        <activity android:name=".addFoodItem" />
+        <activity android:name=".Settings" />
+        <activity android:name=".Profile" />
+        <activity android:name=".Privacy" />
+        <activity android:name=".Orders" />
+        <activity android:name=".Help" />
+        <activity android:name=".ViewAllActivity" />
+        <activity android:name=".Login" />
+        <activity android:name=".MainActivity"></activity>
+        <activity android:name=".signup" />
 
         <meta-data
             android:name="preloaded_fonts"
