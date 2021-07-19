@@ -10,22 +10,40 @@
     <include
         android:id="@+id/include"
         layout="@layout/toolbar"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+
+    <TextView
+        android:id="@+id/pagename"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="16dp"
+        android:fontFamily="@font/montserrat"
+        android:text="All Orders"
+        android:textColor="#3D3D3D"
+        android:textSize="25dp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toBottomOf="@+id/include"
+        tools:layout_editor_absoluteX="16dp" />
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/viewAllRecycler"
         android:layout_width="407dp"
         android:layout_height="657dp"
-        android:layout_marginTop="6dp"
         android:layout_marginEnd="4dp"
         android:layout_marginBottom="1dp"
+        android:layout_marginTop="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/include"
+        app:layout_constraintTop_toBottomOf="@+id/pagename"
         tools:ignore="UnknownId" />
 
 
