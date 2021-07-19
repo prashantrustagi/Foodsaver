@@ -48,12 +48,12 @@ public class MainActivity extends AppCompatActivity {
 
 
         List<PendingOrder> pendingOrderList = new ArrayList<>();
-        pendingOrderList.add(new PendingOrder("ABC NGO", "Burger, Fries, Noodles, Soup...", "8.40pm", "Pickup(Akash 723)", R.drawable.burger));
-        pendingOrderList.add(new PendingOrder("BCD NGO", "Burger, Fries, Noodles, Soup...", "8.40pm", "Pickup(Akash 723)", R.drawable.burger));
-        pendingOrderList.add(new PendingOrder("CDE NGO", "Burger, Fries, Noodles, Soup...", "8.40pm", "Pickup(Akash 723)", R.drawable.burger));
-        pendingOrderList.add(new PendingOrder("EFG NGO", "Burger, Fries, Noodles, Soup...", "8.40pm", "Pickup(Akash 723)", R.drawable.burger));
-        pendingOrderList.add(new PendingOrder("XYZ NGO", "Burger, Fries, Noodles, Soup...", "8.40pm", "Pickup(Akash 723)", R.drawable.burger));
-        pendingOrderList.add(new PendingOrder("ZXC NGO", "Burger, Fries, Noodles, Soup...", "8.40pm", "Pickup(Akash 723)", R.drawable.burger));
+        pendingOrderList.add(new PendingOrder("ABC NGO", "Burger, Fries, Noodles, Soup...", "8.40pm", "Pickup(Akash 723)", R.drawable.burgerlisting));
+        pendingOrderList.add(new PendingOrder("BCD NGO", "Burger, Fries, Noodles, Soup...", "8.40pm", "Pickup(Akash 723)", R.drawable.burgerlisting));
+        pendingOrderList.add(new PendingOrder("CDE NGO", "Burger, Fries, Noodles, Soup...", "8.40pm", "Pickup(Akash 723)", R.drawable.burgerlisting));
+        pendingOrderList.add(new PendingOrder("EFG NGO", "Burger, Fries, Noodles, Soup...", "8.40pm", "Pickup(Akash 723)", R.drawable.burgerlisting));
+        pendingOrderList.add(new PendingOrder("XYZ NGO", "Burger, Fries, Noodles, Soup...", "8.40pm", "Pickup(Akash 723)", R.drawable.burgerlisting));
+        pendingOrderList.add(new PendingOrder("ZXC NGO", "Burger, Fries, Noodles, Soup...", "8.40pm", "Pickup(Akash 723)", R.drawable.burgerlisting));
         setPendingRecycler(pendingOrderList);
         viewAll = findViewById(R.id.viewAll);
         viewAll.setOnClickListener(new View.OnClickListener() {

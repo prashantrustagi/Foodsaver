@@ -53,9 +53,9 @@
             android:id="@+id/restaurantName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="46dp"
+            android:layout_marginStart="16dp"
             android:layout_marginTop="30dp"
-            android:layout_marginEnd="46dp"
+            android:layout_marginEnd="16dp"
             android:fontFamily="@font/montserrat"
             android:text="Restaurant Name"
             android:textColor="#3D3D3D"
@@ -67,93 +67,92 @@
 
         <TextView
             android:id="@+id/pendingOrders"
-            android:layout_width="105dp"
-            android:layout_height="101dp"
-            android:layout_marginStart="20dp"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
             android:background="@drawable/extra_round"
             android:elevation="15dp"
             android:fontFamily="sans-serif-thin"
             android:gravity="center"
-            android:padding="25dp"
+            android:padding="18dp"
             android:text="20"
             android:textAlignment="center"
             android:textColor="#00BCD4"
             android:textColorHighlight="#3F51B5"
             android:textColorLink="#3F51B5"
-            android:textSize="45sp"
+            android:textSize="50sp"
             android:textStyle="bold"
+            app:layout_constraintEnd_toStartOf="@+id/completedOrders"
+            app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/completedOrders" />
 
         <TextView
             android:id="@+id/completedOrders"
-            android:layout_width="105dp"
-            android:layout_height="101dp"
-            android:layout_marginStart="17dp"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
             android:layout_marginTop="30dp"
-            android:layout_marginEnd="17dp"
             android:background="@drawable/extra_round"
             android:elevation="15dp"
             android:fontFamily="sans-serif-thin"
             android:gravity="center"
-            android:padding="25dp"
+            android:padding="18dp"
             android:text="20"
             android:textAlignment="center"
             android:textColor="#B0000000"
-            android:textSize="45sp"
+            android:textSize="50sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toStartOf="@+id/cancelledOrders"
+            app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toEndOf="@+id/pendingOrders"
             app:layout_constraintTop_toBottomOf="@+id/restaurantName" />
 
         <TextView
             android:id="@+id/cancelledOrders"
-            android:layout_width="105dp"
-            android:layout_height="101dp"
-            android:layout_marginEnd="16dp"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
             android:background="@drawable/extra_round"
             android:elevation="15dp"
             android:fontFamily="sans-serif-thin"
             android:gravity="center"
-            android:padding="25dp"
+            android:padding="18dp"
             android:text="20"
             android:textAlignment="center"
             android:textColor="#D54D4D"
-            android:textSize="45sp"
+            android:textSize="50sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/completedOrders"
             app:layout_constraintTop_toTopOf="@+id/completedOrders" />
 
         <TextView
             android:id="@+id/textView18"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="39dp"
-            android:layout_marginTop="15dp"
+            android:layout_marginTop="28dp"
             android:fontFamily="@font/montserrat"
             android:gravity="center"
             android:text="Pending\n Orders"
             android:textColor="#3D3D3D"
             android:textSize="16sp"
             android:textStyle="bold"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/pendingOrders"
+            app:layout_constraintStart_toStartOf="@+id/pendingOrders"
             app:layout_constraintTop_toBottomOf="@+id/pendingOrders" />
 
         <TextView
             android:id="@+id/completed"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="48dp"
-            android:layout_marginTop="15dp"
-            android:layout_marginEnd="49dp"
+            android:layout_marginTop="28dp"
             android:fontFamily="@font/montserrat"
             android:gravity="center"
             android:text="Completed\n Orders"
             android:textColor="#3D3D3D"
             android:textSize="16sp"
             android:textStyle="bold"
-            app:layout_constraintEnd_toStartOf="@+id/cancelled"
-            app:layout_constraintStart_toEndOf="@+id/textView18"
+            app:layout_constraintEnd_toEndOf="@+id/completedOrders"
+            app:layout_constraintStart_toStartOf="@+id/completedOrders"
             app:layout_constraintTop_toBottomOf="@+id/completedOrders"
             tools:ignore="NotSibling" />
 
@@ -161,15 +160,15 @@
             android:id="@+id/cancelled"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
-            android:layout_marginEnd="30dp"
+            android:layout_marginTop="28dp"
             android:fontFamily="@font/montserrat"
             android:gravity="center"
             android:text="Cancelled\n Orders"
             android:textColor="#3D3D3D"
             android:textSize="16sp"
             android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/cancelledOrders"
+            app:layout_constraintStart_toStartOf="@+id/cancelledOrders"
             app:layout_constraintTop_toBottomOf="@+id/cancelledOrders" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -179,15 +178,18 @@
             android:background="#F8FBFF"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/completed">
+            app:layout_constraintTop_toBottomOf="@+id/completed"
+            app:layout_constraintVertical_bias="0.0">
 
             <TextView
                 android:id="@+id/uparWalaName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="46dp"
-                android:layout_marginTop="12dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
                 android:fontFamily="@font/montserrat"
                 android:text="Pending Orders"
                 android:textColor="#3D3D3D"
@@ -200,14 +202,14 @@
                 android:id="@+id/pending_recycler5"
                 android:layout_width="match_parent"
                 android:layout_height="360dp"
-                android:layout_marginTop="12dp"
+                android:layout_marginTop="10dp"
                 android:layout_marginBottom="1dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/uparWalaName"
-                app:layout_constraintVertical_bias="0.416" />
+                app:layout_constraintVertical_bias="0.0" />
 
             <com.google.android.material.floatingactionbutton.FloatingActionButton
                 android:id="@+id/fab"
@@ -234,13 +236,19 @@
                 android:textColor="#03DAC5"
                 android:textColorLink="#000000"
                 android:textSize="16sp"
-                app:layout_constraintBottom_toBottomOf="@+id/uparWalaName"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="@+id/uparWalaName" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="16dp" />
     </androidx.constraintlayout.widget.ConstraintLayout>
-    <com.google.android.material.navigation.NavigationView
+    <!--<com.google.android.material.navigation.NavigationView
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:id="@+id/nav_view"
@@ -251,5 +259,5 @@
         app:itemIconTint="#000"
         app:itemHorizontalPadding="40dp"
         tools:ignore="MissingConstraints"
-        />
+        />-->
 </androidx.drawerlayout.widget.DrawerLayout>
