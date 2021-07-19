@@ -38,7 +38,7 @@ public class Login extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
-        getSupportActionBar().hide();
+
         setContentView(R.layout.activity_login);
         email = findViewById(R.id.email_login);
         password = findViewById(R.id.psws_login);
@@ -89,6 +89,8 @@ public class Login extends AppCompatActivity {
                             password.setText("");
 
                             Toast.makeText(Login.this, "Successfully Login", Toast.LENGTH_SHORT).show();
+                            Intent intent = new Intent(Login.this, MainActivity.class);
+                            startActivity(intent);
 
                         } else {
                             Toast.makeText(Login.this, "Error!!", Toast.LENGTH_SHORT).show();

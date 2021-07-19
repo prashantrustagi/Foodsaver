@@ -12,7 +12,7 @@
         android:theme="@style/Theme.Foodsaver"
         android:usesCleartextTraffic="true">
         <activity android:name=".addFoodItem"></activity>
-        <activity android:name=".signup"></activity>
+
         <activity android:name=".Settings" />
         <activity android:name=".Profile" />
         <activity android:name=".Privacy" />
@@ -26,6 +26,9 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity android:name=".signup">
+
         </activity>
 
         <meta-data
