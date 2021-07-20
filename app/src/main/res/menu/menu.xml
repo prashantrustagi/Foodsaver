@@ -34,6 +34,7 @@
             <group android:checkableBehavior="single">
                 <item
                     android:title="Log Out"
+                    android:id="@+id/logout"
                     />
             </group>
         </menu>

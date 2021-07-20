@@ -125,6 +125,10 @@ public class MainActivity extends AppCompatActivity {
                         Intent privacyIntent = new Intent(MainActivity.this, Privacy.class);
                         startActivity(privacyIntent);
                         break;
+                    case R.id.logout:
+                        Intent logoutintent= new Intent(MainActivity.this, Login.class);
+                        startActivity(logoutintent);
+                        break;
                     default:
                         return true;
                 }
