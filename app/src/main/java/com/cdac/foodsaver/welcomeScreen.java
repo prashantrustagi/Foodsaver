@@ -11,7 +11,7 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class welcomeScreen extends AppCompatActivity {
-    Button btn;
+    Button btn, welcomebtn_ngo;
     TextView text;
 
     @Override
@@ -29,15 +29,21 @@ public class welcomeScreen extends AppCompatActivity {
             }
         });
 
-        text = findViewById(R.id.welcomescreen_txt);
+      /*  text = findViewById(R.id.welcomescreen_txt);
         text.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(welcomeScreen.this, Login.class);
                 startActivity(intent);
             }
+        });*/
+        welcomebtn_ngo =findViewById(R.id.welcomescreen_btnngo);
+        welcomebtn_ngo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent t =  new Intent(welcomeScreen.this, ngosignup.class);
+                startActivity(t);
+            }
         });
-
-
     }
 }
