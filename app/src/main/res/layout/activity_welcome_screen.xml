@@ -35,15 +35,30 @@
         android:layout_width="match_parent"
         android:layout_height="55dp"
         android:layout_marginStart="30dp"
-        android:layout_marginTop="80dp"
+        android:layout_marginTop="15dp"
         android:layout_marginEnd="30dp"
         android:background="@drawable/button_back"
         android:fontFamily="@font/montserrat"
-        android:text="Craete an account"
+        android:text="Restaurant"
         app:backgroundTint="#03DAC5"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView6" />
+        app:layout_constraintTop_toBottomOf="@+id/welcomescreen_txt" />
+
+    <Button
+        android:id="@+id/welcomescreen_btnngo"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="30dp"
+        android:background="@drawable/button_back"
+        android:fontFamily="@font/montserrat"
+        android:text="NGO"
+        app:backgroundTint="#03DAC5"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/welcomescreen_btn" />
 
     <TextView
         android:id="@+id/welcomescreen_txt"
@@ -53,11 +68,12 @@
         android:layout_marginTop="24dp"
         android:layout_marginEnd="170dp"
         android:fontFamily="@font/montserrat"
-        android:text="Login Now"
+        android:text="Use as"
         android:textColor="#3D3D3D"
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/welcomescreen_btn" />
+        app:layout_constraintTop_toBottomOf="@+id/imageView6"
+         />
 </androidx.constraintlayout.widget.ConstraintLayout>
