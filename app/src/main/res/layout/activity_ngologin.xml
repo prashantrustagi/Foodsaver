@@ -5,24 +5,36 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#F8FBFF"
-    tools:context=".Login">
+    tools:context=".ngologin">
+
+    <ImageView
+        android:id="@+id/imgngologo"
+        android:layout_width="140dp"
+        android:layout_height="140dp"
+        android:layout_marginStart="115dp"
+        android:layout_marginTop="35dp"
+        android:layout_marginEnd="103dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/logofood" />
 
     <TextView
-        android:id="@+id/textView8"
+        android:id="@+id/textViewngol1"
         android:layout_width="275dp"
         android:layout_height="42dp"
         android:layout_marginStart="46dp"
-        android:layout_marginTop="25dp"
+        android:layout_marginTop="35dp"
         android:fontFamily="@font/montserrat"
-        android:text="Login as Restaurant"
+        android:text="Login as NGO"
         android:textColor="#1C1C1C"
         android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView2" />
+        app:layout_constraintTop_toBottomOf="@+id/imgngologo" />
 
     <TextView
-        android:id="@+id/textView10"
+        android:id="@+id/textViewngol2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="46dp"
@@ -32,51 +44,25 @@
         android:textColor="#3D3D3D"
         android:textSize="16sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView8" />
-
-    <ImageView
-        android:id="@+id/imageView2"
-        android:layout_width="140dp"
-        android:layout_height="140dp"
-        android:layout_marginStart="115dp"
-        android:layout_marginTop="25dp"
-        android:layout_marginEnd="103dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/logofood" />
-
-
+        app:layout_constraintTop_toBottomOf="@+id/textViewngol1" />
 
     <TextView
-        android:id="@+id/textView12"
+        android:id="@+id/textViewngol3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="46dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="30dp"
         android:text="Email Address"
         android:textColor="#3D3D3D"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView10" />
-
-    <TextView
-        android:id="@+id/textView13"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="46dp"
-        android:layout_marginTop="20dp"
-        android:fontFamily="@font/montserrat"
-        android:text="Password"
-        android:textColor="#3D3D3D"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/email_login" />
+        app:layout_constraintTop_toBottomOf="@+id/textViewngol2" />
 
     <EditText
-        android:id="@+id/email_login"
+        android:id="@+id/email_loginngo"
         android:layout_width="match_parent"
         android:layout_height="51dp"
         android:layout_marginStart="46dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="25dp"
         android:layout_marginEnd="46dp"
         android:background="@drawable/text_back"
         android:ems="10"
@@ -86,14 +72,26 @@
         android:paddingLeft="15dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView12" />
+        app:layout_constraintTop_toBottomOf="@+id/textViewngol2" />
+
+    <TextView
+        android:id="@+id/textViewngol4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="46dp"
+        android:layout_marginTop="30dp"
+        android:fontFamily="@font/montserrat"
+        android:text="Password"
+        android:textColor="#3D3D3D"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/email_loginngo" />
 
     <EditText
-        android:id="@+id/psws_login"
+        android:id="@+id/psws_loginngo"
         android:layout_width="match_parent"
         android:layout_height="51dp"
         android:layout_marginStart="46dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="20dp"
         android:layout_marginEnd="46dp"
         android:background="@drawable/text_back"
         android:ems="10"
@@ -103,16 +101,14 @@
         android:paddingLeft="15dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView13" />
-
-
+        app:layout_constraintTop_toBottomOf="@+id/textViewngol4" />
 
     <Button
-        android:id="@+id/login_btn"
+        android:id="@+id/login_btnngo"
         android:layout_width="match_parent"
         android:layout_height="55dp"
         android:layout_marginStart="46dp"
-        android:layout_marginTop="25dp"
+        android:layout_marginTop="35dp"
         android:layout_marginEnd="46dp"
         android:background="@drawable/button_back"
         android:fontFamily="@font/montserrat"
@@ -120,22 +116,22 @@
         app:backgroundTint="#03DAC5"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/psws_login" />
+        app:layout_constraintTop_toBottomOf="@+id/psws_loginngo" />
 
     <TextView
-        android:id="@+id/textView14"
+        android:id="@+id/textViewngol5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="120dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="30dp"
         android:fontFamily="@font/montserrat"
         android:text="New user?"
         android:textColor="#3D3D3D"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/login_btn" />
+        app:layout_constraintTop_toBottomOf="@+id/login_btnngo" />
 
     <TextView
-        android:id="@+id/signup_txt"
+        android:id="@+id/signup_txtngo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="140dp"
@@ -143,11 +139,11 @@
         android:text="Sign up"
         android:textColor="#3D3D3D"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@+id/textView14"
+        app:layout_constraintBottom_toBottomOf="@+id/textViewngol5"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toEndOf="@+id/textView14"
-        app:layout_constraintTop_toTopOf="@+id/textView14"
+        app:layout_constraintStart_toEndOf="@+id/textViewngol5"
+        app:layout_constraintTop_toTopOf="@+id/textViewngol5"
         app:layout_constraintVertical_bias="0.0" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

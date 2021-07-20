@@ -30,7 +30,7 @@ import java.util.Map;
 
 public class signup extends AppCompatActivity {
     TextView loginNow;
-    Spinner spinner;
+    /*Spinner spinner;*/
     EditText  email, password, location;
     Button createAcc;
     FirebaseAuth fAuth;
@@ -56,22 +56,24 @@ public class signup extends AppCompatActivity {
         fAuth = FirebaseAuth.getInstance();
         location = findViewById(R.id.location_signup);
 
-       spinner = findViewById(R.id.spinner);
+       /*spinner = findViewById(R.id.spinner);*/
 
 
         // Create an ArrayAdapter using the string array and a default spinner layout
+/*
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.roles, android.R.layout.simple_spinner_item);
+*/
         // Specify the layout to use when the list of choices appears
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        /*adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);*/
         // Apply the adapter to the spinner
-        spinner.setAdapter(adapter);
+       /* spinner.setAdapter(adapter);*/
 
         createAcc.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String Email = email.getText().toString().trim();
                 String Password = password.getText().toString().trim();
-                String userType = spinner.getSelectedItem().toString().trim();
+                /*String userType = spinner.getSelectedItem().toString().trim();*/
                 String Location = location.getText().toString();
 
 
@@ -88,10 +90,10 @@ public class signup extends AppCompatActivity {
                     Toast.makeText(signup.this, "Please enter your name", Toast.LENGTH_SHORT).show();
                     return;
                 }
-                if (TextUtils.isEmpty(userType)) {
+                /*if (TextUtils.isEmpty(userType)) {
                     Toast.makeText(signup.this, "Please select your role", Toast.LENGTH_SHORT).show();
                     return;
-                }
+                }*/
 
                 if (Password.length() < 6) {
                     password.setError("Password must be greater than 6 characters.");
@@ -112,7 +114,7 @@ public class signup extends AppCompatActivity {
                             Map<String,Object> user = new HashMap<>();
                             user.put("Location", Location);
                             user.put("email", Email);
-                            user.put("User Type", userType);
+                            /*user.put("User Type", userType);*/
 
                             documentReference.set(user).addOnSuccessListener(new OnSuccessListener<Void>() {
                                 @Override

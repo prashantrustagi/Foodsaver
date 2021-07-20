@@ -23,7 +23,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 public class Login extends AppCompatActivity {
-    Spinner spinner2;
+    /*Spinner spinner2;*/
     TextView signupTxt;
     EditText email, password;
     Button Loginbtn;
@@ -47,15 +47,17 @@ public class Login extends AppCompatActivity {
         signupTxt = findViewById(R.id.signup_txt);
 
 
-        spinner2 = findViewById(R.id.spinner2);
+        /*spinner2 = findViewById(R.id.spinner2);*/
 
 
         // Create an ArrayAdapter using the string array and a default spinner layout
+/*
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.roles1, android.R.layout.simple_spinner_item);
+*/
         // Specify the layout to use when the list of choices appears
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        /*adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);*/
         // Apply the adapter to the spinner
-        spinner2.setAdapter(adapter);
+//        spinner2.setAdapter(adapter);
 
         Loginbtn = findViewById(R.id.login_btn);
         Loginbtn.setOnClickListener(new View.OnClickListener() {
