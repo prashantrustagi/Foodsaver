@@ -16,6 +16,15 @@
 
 
     </array>
+
+    <array name="foodType">
+        <item>Select</item>
+        <item>VEG</item>
+        <item>NON VEG</item>
+
+
+
+    </array>
     <string name="app_name">Food Order</string>
     <string name="open">Open</string>
     <string name="close">Close</string>

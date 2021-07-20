@@ -21,6 +21,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.cdac.foodsaver.adapter.PendingOrderAdapter;
 import com.cdac.foodsaver.model.PendingOrder;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
 
 import java.util.ArrayList;
@@ -35,6 +36,7 @@ public class MainActivity extends AppCompatActivity {
     NavigationView navigationView;
     ActionBarDrawerToggle toggle;
     Toolbar toolbar;
+    FloatingActionButton fab;
     MenuItem menuItem;
 
 
@@ -46,6 +48,14 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         imageView = findViewById(R.id.imageView);
         drawerLayout = findViewById(R.id.drawerLayout);
+        fab = findViewById(R.id.fab);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent fabBtn = new Intent(MainActivity.this,createFoodListing.class);
+                startActivity(fabBtn);
+            }
+        });
 
 
         List<PendingOrder> pendingOrderList = new ArrayList<>();

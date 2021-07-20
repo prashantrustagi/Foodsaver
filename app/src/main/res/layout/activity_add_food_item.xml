@@ -6,17 +6,25 @@
     android:layout_height="match_parent"
     android:background="#F8FBFF"
     tools:context=".addFoodItem">
+    <include
+        android:id="@+id/include"
+        layout="@layout/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
         android:id="@+id/imageView3"
         android:layout_width="248dp"
         android:layout_height="162dp"
         android:layout_marginStart="81dp"
-        android:layout_marginTop="37dp"
         android:layout_marginEnd="82dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/include"
         app:srcCompat="@drawable/burgerlisting" />
 
     <TextView
