@@ -72,7 +72,7 @@
         android:paddingLeft="15dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewngol2" />
+        app:layout_constraintTop_toBottomOf="@+id/textViewngol3" />
 
     <TextView
         android:id="@+id/textViewngol4"
