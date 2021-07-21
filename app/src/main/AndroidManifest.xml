@@ -11,7 +11,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Foodsaver"
         android:usesCleartextTraffic="true">
-        <activity android:name=".ngosignup"></activity>
+        <activity android:name=".availrestaurant_layout"></activity>
+        <activity android:name=".ngodashboard" />
+        <activity android:name=".ngosignup" />
         <activity android:name=".ngologin" />
         <activity android:name=".finalPost" />
         <activity android:name=".welcomeScreen" />
