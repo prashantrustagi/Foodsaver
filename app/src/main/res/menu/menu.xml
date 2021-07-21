@@ -8,13 +8,13 @@
             android:id="@+id/my_profile"
             />
         <item
-            android:title="Orders"
+            android:title="Pending Orders"
             android:icon="@drawable/order"
             android:id="@+id/my_orders"
             />
         <item
-            android:title="Settings"
-            android:icon="@drawable/setting"
+            android:title="Completed Orders"
+            android:icon="@drawable/order"
             android:id="@+id/my_settings"
             />
         <item
