@@ -73,7 +73,7 @@ public class ngologin extends AppCompatActivity {
                             password.setText("");
 
                             Toast.makeText(ngologin.this, "Successfully Login", Toast.LENGTH_SHORT).show();
-                            Intent intent = new Intent(ngologin.this, MainActivity.class);
+                            Intent intent = new Intent(ngologin.this, ngodashboard.class);
                             startActivity(intent);
 
                         } else {

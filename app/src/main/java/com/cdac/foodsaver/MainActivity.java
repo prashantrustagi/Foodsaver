@@ -2,8 +2,10 @@ package com.cdac.foodsaver;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.ImageView;
@@ -21,15 +23,20 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.cdac.foodsaver.adapter.PendingOrderAdapter;
 import com.cdac.foodsaver.model.PendingOrder;
+import com.firebase.ui.firestore.FirestoreRecyclerAdapter;
+import com.firebase.ui.firestore.FirestoreRecyclerOptions;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.Query;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
     RecyclerView pendingRecycler;
-    PendingOrderAdapter pendingOrderAdapter;
     TextView viewAll;
     ImageView imageView;
     DrawerLayout drawerLayout;
@@ -38,6 +45,11 @@ public class MainActivity extends AppCompatActivity {
     Toolbar toolbar;
     FloatingActionButton fab;
     MenuItem menuItem;
+    private FirebaseAuth firebaseAuth;
+    FirebaseUser firebaseUser;
+    FirebaseFirestore firebaseFirestore;
+    FirestoreRecyclerAdapter<firebasemodel, listViewHolder> pendingAdapter;
+
 
 
     @Override
@@ -48,6 +60,11 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         imageView = findViewById(R.id.imageView);
         drawerLayout = findViewById(R.id.drawerLayout);
+
+        firebaseAuth = FirebaseAuth.getInstance();
+        firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
+        firebaseFirestore =  FirebaseFirestore.getInstance();
+
         fab = findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -56,16 +73,35 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(fabBtn);
             }
         });
+        Query query = firebaseFirestore.collection("Pending Order").document(firebaseUser.getUid()).collection("My pendind order");
+        FirestoreRecyclerOptions<firebasemodel> allList = new FirestoreRecyclerOptions.Builder<firebasemodel>().setQuery(query,firebasemodel.class).build();
+
+pendingAdapter = new FirestoreRecyclerAdapter<firebasemodel, listViewHolder>(allList){
 
 
-        List<PendingOrder> pendingOrderList = new ArrayList<>();
-        pendingOrderList.add(new PendingOrder("ABC NGO", "Burger, Fries, Noodles, Soup...", "8.40pm", "Pickup(Akash 723)", R.drawable.burgerlisting));
-        pendingOrderList.add(new PendingOrder("BCD NGO", "Burger, Fries, Noodles, Soup...", "8.40pm", "Pickup(Akash 723)", R.drawable.burgerlisting));
-        pendingOrderList.add(new PendingOrder("CDE NGO", "Burger, Fries, Noodles, Soup...", "8.40pm", "Pickup(Akash 723)", R.drawable.burgerlisting));
-        pendingOrderList.add(new PendingOrder("EFG NGO", "Burger, Fries, Noodles, Soup...", "8.40pm", "Pickup(Akash 723)", R.drawable.burgerlisting));
-        pendingOrderList.add(new PendingOrder("XYZ NGO", "Burger, Fries, Noodles, Soup...", "8.40pm", "Pickup(Akash 723)", R.drawable.burgerlisting));
-        pendingOrderList.add(new PendingOrder("ZXC NGO", "Burger, Fries, Noodles, Soup...", "8.40pm", "Pickup(Akash 723)", R.drawable.burgerlisting));
-        setPendingRecycler(pendingOrderList);
+    @Override
+    protected void onBindViewHolder(@NonNull listViewHolder listViewHolder, int i, @NonNull firebasemodel firebasemodel){
+        listViewHolder.foodType.setText(firebasemodel.getFoodType());
+        listViewHolder.food.setText(firebasemodel.getItemName());
+        listViewHolder.Ptime.setText(firebasemodel.getPerishTime());
+    }
+    @NonNull
+    @Override
+    public listViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType){
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.new_pending_order_list,parent,false);
+        return new listViewHolder(view);
+    }
+
+};
+        pendingRecycler = findViewById(R.id.pending_recycler5);
+        pendingRecycler.setHasFixedSize(true);
+        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this,RecyclerView.VERTICAL,false);
+        pendingRecycler.setLayoutManager(layoutManager);
+        pendingRecycler.setAdapter(pendingAdapter );
+
+
+
+
         viewAll = findViewById(R.id.viewAll);
         viewAll.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -141,14 +177,34 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-    private void setPendingRecycler(List<PendingOrder> pendingOrderList) {
-        pendingRecycler = findViewById(R.id.pending_recycler5);
-        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this, RecyclerView.VERTICAL, false);
-        pendingRecycler.setLayoutManager(layoutManager);
-        pendingOrderAdapter = new PendingOrderAdapter(this, pendingOrderList);
-        pendingRecycler.setAdapter(pendingOrderAdapter);
+    public class listViewHolder extends RecyclerView.ViewHolder
+    {
+
+        TextView food, foodType,Ptime;
+        public listViewHolder(@NonNull View itemView) {
+            super(itemView);
+
+            food = itemView.findViewById(R.id.item_name_rec);
+            foodType = itemView.findViewById(R.id.food_type_rec);
+            Ptime = itemView.findViewById(R.id.perish_time_rec);
+
+        }
     }
 
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        pendingAdapter.startListening();
+    }
+    @Override
+    protected void onStop() {
+        super.onStop();
+        if(pendingAdapter!= null)
+        {
+            pendingAdapter.startListening();
+        }
+    }
 
 
 
