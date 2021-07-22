@@ -74,7 +74,7 @@ public class addFoodItem extends AppCompatActivity {
                     Toast.makeText(addFoodItem.this, "All fields are required", Toast.LENGTH_SHORT).show();
                 }
                 else {
-                    DocumentReference documentReference = firebaseFirestore.collection("Pending Order").document(firebaseUser.getUid()).collection("My pendind order").document();
+                    DocumentReference documentReference = firebaseFirestore.collection("Restaurant").document(firebaseUser.getUid()).collection("Pending order").document();
                     Map<String, Object> list =new HashMap<>();
                     list.put("FoodType", foodType);
                     list.put("ItemName",itemName2);

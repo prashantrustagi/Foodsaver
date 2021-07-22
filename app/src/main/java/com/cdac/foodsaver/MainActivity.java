@@ -73,7 +73,7 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(fabBtn);
             }
         });
-        Query query = firebaseFirestore.collection("Pending Order").document(firebaseUser.getUid()).collection("My pendind order");
+        Query query = firebaseFirestore.collection("Restaurant").document(firebaseUser.getUid()).collection("Pending order");
         FirestoreRecyclerOptions<firebasemodel> allList = new FirestoreRecyclerOptions.Builder<firebasemodel>().setQuery(query,firebasemodel.class).build();
 
 pendingAdapter = new FirestoreRecyclerAdapter<firebasemodel, listViewHolder>(allList){
