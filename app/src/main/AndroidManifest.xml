@@ -11,7 +11,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Foodsaver"
         android:usesCleartextTraffic="true">
-        <activity android:name=".restlistcomp"></activity>
+        <activity android:name=".restlistcomp" />
         <activity android:name=".restlistdetail" />
         <activity android:name=".listdetailcompletedngo" />
         <activity android:name=".listdetail" />
