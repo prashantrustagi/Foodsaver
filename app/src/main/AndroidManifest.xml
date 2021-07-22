@@ -11,7 +11,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Foodsaver"
         android:usesCleartextTraffic="true">
-        <activity android:name=".listdetail"></activity>
+        <activity android:name=".restlistcomp"></activity>
+        <activity android:name=".restlistdetail" />
+        <activity android:name=".listdetailcompletedngo" />
+        <activity android:name=".listdetail" />
         <activity android:name=".availrestaurant_layout" />
         <activity android:name=".ngodashboard" />
         <activity android:name=".ngosignup" />
@@ -24,11 +27,8 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
         </activity>
-        <activity android:name=".createFoodListing">
-
-        </activity>
+        <activity android:name=".createFoodListing" />
         <activity android:name=".addFoodItem" />
         <activity android:name=".Settings" />
         <activity android:name=".Profile" />

@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#F8FBFF"
-    tools:context=".listdetail">
+    tools:context=".restlistcomp">
 
     <include
         android:id="@+id/include"
@@ -17,7 +17,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
-        android:id="@+id/listdetailimg"
+        android:id="@+id/listdetailimgcompres"
         android:layout_width="150dp"
         android:layout_height="150dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -26,7 +26,7 @@
         app:srcCompat="@drawable/burgerlisting" />
 
     <TextView
-        android:id="@+id/listdetail1"
+        android:id="@+id/listdetail1compres"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -36,55 +36,65 @@
         android:textColor="#3D3D3D"
         android:textSize="25dp"
         android:textStyle="bold"
-        app:layout_constraintTop_toBottomOf="@+id/listdetailimg"
+        app:layout_constraintTop_toBottomOf="@+id/listdetailimgcompres"
         />
 
     <TextView
-        android:id="@+id/listdetail2"
+        android:id="@+id/listdetail2compres"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="10dp"
         android:text="Location : Rohini, Delhi"
         android:textSize="20sp"
-        app:layout_constraintStart_toStartOf="@+id/listdetail1"
-        app:layout_constraintTop_toBottomOf="@+id/listdetail1" />
+        app:layout_constraintStart_toStartOf="@+id/listdetail1compres"
+        app:layout_constraintTop_toBottomOf="@+id/listdetail1compres" />
 
     <TextView
-        android:id="@+id/listdetail3"
+        android:id="@+id/listdetail3compres"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="10dp"
         android:text="Phone No. = 9999888877"
         android:textSize="20sp"
-        app:layout_constraintStart_toStartOf="@+id/listdetail2"
-        app:layout_constraintTop_toBottomOf="@+id/listdetail2" />
+        app:layout_constraintStart_toStartOf="@+id/listdetail2compres"
+        app:layout_constraintTop_toBottomOf="@+id/listdetail2compres" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerView_listdetail"
+        android:id="@+id/recyclerView_listdetailcompres"
         android:layout_width="match_parent"
         android:layout_height="260dp"
         android:layout_marginTop="20dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/listdetail3" />
+        app:layout_constraintTop_toBottomOf="@+id/listdetail3compres" />
 
-    <Button
-        android:id="@+id/bookdetail"
-        android:layout_width="match_parent"
-        android:layout_height="55dp"
+    <TextView
+        android:id="@+id/bookdetailcompres"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
         android:layout_marginTop="10dp"
         android:layout_marginEnd="30dp"
-        android:background="@drawable/button_back"
+        android:background="#03DAC5"
         android:fontFamily="@font/montserrat"
-        android:text="Book Listing"
+        android:paddingStart="30dp"
+        android:paddingTop="10dp"
+        android:paddingEnd="30dp"
+        android:paddingBottom="10dp"
+        android:text="Completed"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        android:textStyle="bold"
         app:backgroundTint="#03DAC5"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/recyclerView_listdetail" />
+        app:layout_constraintTop_toBottomOf="@+id/recyclerView_listdetailcompres" />
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
