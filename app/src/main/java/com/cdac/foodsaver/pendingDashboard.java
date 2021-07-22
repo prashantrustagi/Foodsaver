@@ -1,17 +1,16 @@
 package com.cdac.foodsaver;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.WindowManager;
+import android.widget.ImageView;
 import android.widget.TextView;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.firebase.ui.firestore.FirestoreRecyclerAdapter;
 import com.firebase.ui.firestore.FirestoreRecyclerOptions;
@@ -20,49 +19,38 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.Query;
 
-public class ngodashboard extends AppCompatActivity {
-    TextView viewAll;
-    RecyclerView ngorecView;
-    private FirebaseAuth firebaseAuth;
+public class pendingDashboard extends AppCompatActivity {
+    ImageView backButton;
+    RecyclerView recPendingList_nav;
+    FirebaseAuth firebaseAuth;
     FirebaseUser firebaseUser;
     FirebaseFirestore firebaseFirestore;
-    FirestoreRecyclerAdapter<firebasemodel,listViewHolder> pendingAdapter;
-
+    FirestoreRecyclerAdapter<firebasemodel, listViewHolder> pendingAdapter;
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected  void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
-        this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
-        setContentView(R.layout.activity_ngodashboard);
-
-
+        setContentView(R.layout.activity_orders);
 
         firebaseAuth = FirebaseAuth.getInstance();
         firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
         firebaseFirestore =  FirebaseFirestore.getInstance();
-
-        viewAll = findViewById(R.id.viewAllngodash);
-        viewAll.setOnClickListener(new View.OnClickListener() {
+        backButton = findViewById(R.id.backButton);
+        backButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(ngodashboard.this, ViewAllActivity.class);
-                startActivity(intent);
+                onBackPressed();
             }
         });
-
         Query query = firebaseFirestore.collection("Restaurant").document(firebaseUser.getUid()).collection("Pending order");
         FirestoreRecyclerOptions<firebasemodel> allList = new FirestoreRecyclerOptions.Builder<firebasemodel>().setQuery(query,firebasemodel.class).build();
+        pendingAdapter = new FirestoreRecyclerAdapter<firebasemodel, listViewHolder>(allList){
 
-
-
-
-           pendingAdapter = new FirestoreRecyclerAdapter<firebasemodel, listViewHolder>(allList){
-               @Override
-                protected void onBindViewHolder(@NonNull listViewHolder listViewHolder, int i, @NonNull firebasemodel firebasemodel) {
-                   listViewHolder.foodType.setText(firebasemodel.getFoodType());
-                   listViewHolder.food.setText(firebasemodel.getItemName());
-                   listViewHolder.Ptime.setText(firebasemodel.getPerishTime());
-               }
-
+            @Override
+            protected void onBindViewHolder(@NonNull listViewHolder listViewHolder , int i, @NonNull firebasemodel firebasemodel){
+                listViewHolder.foodType.setText(firebasemodel.getFoodType());
+                listViewHolder.food.setText(firebasemodel.getItemName());
+                listViewHolder.Ptime.setText(firebasemodel.getPerishTime());
+            }
             @NonNull
             @Override
             public listViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType){
@@ -70,17 +58,18 @@ public class ngodashboard extends AppCompatActivity {
                 return new listViewHolder(view);
             }
 
+
         };
 
 
-        ngorecView = findViewById(R.id.ngodashrec);
-        ngorecView.setHasFixedSize(true);
+        recPendingList_nav = findViewById(R.id.recPendinglist_nav);
+        recPendingList_nav.setHasFixedSize(true);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this,RecyclerView.VERTICAL,false);
-        ngorecView.setLayoutManager(layoutManager);
-        ngorecView.setAdapter(pendingAdapter );
+        recPendingList_nav.setLayoutManager(layoutManager);
+        recPendingList_nav.setAdapter(pendingAdapter );
+
 
     }
-
     public class listViewHolder extends RecyclerView.ViewHolder
     {
 
