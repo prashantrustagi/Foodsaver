@@ -3,11 +3,19 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Hp/OneDrive/Desktop/Foodsaver/app/src/main/res/layout/activity_listdetail.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/Hp/OneDrive/Desktop/Foodsaver/app/src/main/res/layout/activity_listdetailcompletedngo.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/Hp/OneDrive/Desktop/Foodsaver/app/src/main/res/layout/activity_main.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/Hp/OneDrive/Desktop/Foodsaver/app/src/main/res/layout/activity_ngodashboard.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/Hp/OneDrive/Desktop/Foodsaver/app/src/main/res/layout/activity_orders.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/Hp/OneDrive/Desktop/Foodsaver/app/src/main/res/layout/activity_update_items.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/Hp/OneDrive/Desktop/Foodsaver/app/src/main/res/layout/new_pending_order_list.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/Hp/OneDrive/Desktop/Foodsaver/app/src/main/res/layout/pending_order_layout.xml" value="0.20102564102564102" />
         <entry key="..\:/Users/prash/AndroidStudioProjects/Foodsaver/app/src/main/res/layout/activity_profile.xml" value="0.1" />
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_15" project-jdk-name="1.8" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">

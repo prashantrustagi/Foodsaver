@@ -1,5 +1,7 @@
 package com.cdac.foodsaver;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -10,14 +12,17 @@ import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.cdac.foodsaver.adapter.PendingOrderAdapter;
+import com.cdac.foodsaver.adapter.firebaseAdapter;
 import com.cdac.foodsaver.model.PendingOrder;
 import com.firebase.ui.firestore.FirestoreRecyclerAdapter;
 import com.firebase.ui.firestore.FirestoreRecyclerOptions;
@@ -39,8 +44,9 @@ public class createFoodListing extends AppCompatActivity {
     RecyclerView recPendingOrder;
     Button postListing;
     FloatingActionButton actionButton;
+    private firebaseAdapter adapter;
 
-    FirestoreRecyclerAdapter<firebasemodel,listViewHolder> pendingAdapter;
+    //FirestoreRecyclerAdapter<firebasemodel,listViewHolder> pendingAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -66,7 +72,7 @@ public class createFoodListing extends AppCompatActivity {
         Query query = firebaseFirestore.collection("Restaurant").document(firebaseUser.getUid()).collection("Pending order");
         FirestoreRecyclerOptions<firebasemodel> allList = new FirestoreRecyclerOptions.Builder<firebasemodel>().setQuery(query,firebasemodel.class).build();
 
-        pendingAdapter = new FirestoreRecyclerAdapter<firebasemodel, listViewHolder>(allList){
+     /*   pendingAdapter = new FirestoreRecyclerAdapter<firebasemodel, listViewHolder>(allList){
             @Override
             protected void onBindViewHolder(@NonNull listViewHolder listViewHolder , int i, @NonNull firebasemodel firebasemodel)
             {
@@ -80,13 +86,13 @@ public class createFoodListing extends AppCompatActivity {
                 View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.new_pending_order_list,parent,false);
                 return new listViewHolder(view);
             }
-        };
-
+        };*/
+/*
         recPendingOrder = findViewById(R.id.recPendingOrder);
         recPendingOrder.setHasFixedSize(true);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this,RecyclerView.VERTICAL,false);
         recPendingOrder.setLayoutManager(layoutManager);
-        recPendingOrder.setAdapter(pendingAdapter );
+        recPendingOrder.setAdapter(adapter);*/
 
         postListing = findViewById(R.id.postListing);
          postListing.setOnClickListener(new View.OnClickListener() {
@@ -104,7 +110,59 @@ public class createFoodListing extends AppCompatActivity {
                  startActivity(move);
              }
          });
+
+        setUpRecyclerView();
     }
+
+
+    private void setUpRecyclerView(){
+        Query query = firebaseFirestore.collection("Restaurant").document(firebaseUser.getUid()).collection("Pending order");
+        // getting query into adapter
+        FirestoreRecyclerOptions<firebasemodel> allList = new FirestoreRecyclerOptions.Builder<firebasemodel>().setQuery(query,firebasemodel.class).build();
+
+        adapter = new firebaseAdapter(allList);
+
+        // method to setup recycler view
+
+
+        recPendingOrder = findViewById(R.id.recPendingOrder);
+        recPendingOrder.setHasFixedSize(true);
+        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this,RecyclerView.VERTICAL,false);
+        recPendingOrder.setLayoutManager(layoutManager);
+        recPendingOrder.setAdapter(adapter);
+
+        new ItemTouchHelper(new ItemTouchHelper.SimpleCallback(0,ItemTouchHelper.LEFT | ItemTouchHelper.RIGHT) {
+            @Override
+            public boolean onMove(@NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder, @NonNull RecyclerView.ViewHolder target) {
+                return false;
+            }
+
+            @Override
+            public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction) {
+
+
+
+                new AlertDialog.Builder(viewHolder.itemView.getContext())
+                        .setMessage("Are you sure you want to delete?")
+                        .setPositiveButton("YES", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                //  position of the item to be deleted
+                                int position = viewHolder.getAdapterPosition();
+                                // removing this item from the adapter
+                                adapter.deleteItem(position);
+                                Toast.makeText(createFoodListing.this, "Successfully Deleted", Toast.LENGTH_SHORT).show();
+                            }
+                        }).setNegativeButton("NO", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        adapter.notifyItemChanged(viewHolder.getAdapterPosition());
+                    }
+                }).create().show();
+            }
+        }).attachToRecyclerView(recPendingOrder);
+    }
+/*
 
     public class listViewHolder extends RecyclerView.ViewHolder
     {
@@ -120,18 +178,19 @@ public class createFoodListing extends AppCompatActivity {
         }
     }
 
+*/
 
     @Override
     protected void onStart() {
         super.onStart();
-        pendingAdapter.startListening();
+        adapter.startListening();
     }
     @Override
     protected void onStop() {
         super.onStop();
-        if(pendingAdapter!= null)
+        if(adapter!= null)
         {
-            pendingAdapter.startListening();
+            adapter.startListening();
         }
     }
 }

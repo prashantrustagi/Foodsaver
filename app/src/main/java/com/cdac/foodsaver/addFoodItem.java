@@ -94,6 +94,26 @@ public class addFoodItem extends AppCompatActivity {
                         }
                     });
 
+                    DocumentReference documentReference1 = firebaseFirestore.collection("Ngo Pending List").document();
+                    Map<String, Object> list1 =new HashMap<>();
+                    list1.put("FoodType", foodType);
+                    list1.put("ItemName",itemName2);
+                    list1.put("PerishTime",perishTime);
+
+                    documentReference1.set(list1).addOnSuccessListener(new OnSuccessListener<Void>() {
+                        @Override
+                        public void onSuccess(Void unused) {
+                            Toast.makeText(addFoodItem.this, "Item added", Toast.LENGTH_SHORT).show();
+                            Intent intent = new Intent(addFoodItem.this, createFoodListing.class);
+                            startActivity(intent);
+                        }
+                    }).addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull  Exception e) {
+                            Toast.makeText(addFoodItem.this, "Failed to add item", Toast.LENGTH_SHORT).show();
+                        }
+                    });
+
                 }
 
             }

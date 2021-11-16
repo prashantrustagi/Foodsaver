@@ -2,9 +2,12 @@ package com.cdac.foodsaver;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -12,7 +15,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.cdac.foodsaver.adapter.firebaseAdapter;
 import com.firebase.ui.firestore.FirestoreRecyclerAdapter;
 import com.firebase.ui.firestore.FirestoreRecyclerOptions;
 import com.google.firebase.auth.FirebaseAuth;
@@ -26,7 +31,10 @@ public class ngodashboard extends AppCompatActivity {
     private FirebaseAuth firebaseAuth;
     FirebaseUser firebaseUser;
     FirebaseFirestore firebaseFirestore;
-    FirestoreRecyclerAdapter<firebasemodel,listViewHolder> pendingAdapter;
+
+
+    private firebaseAdapter adapter;
+    //FirestoreRecyclerAdapter<firebasemodel,listViewHolder> pendingAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,12 +57,10 @@ public class ngodashboard extends AppCompatActivity {
             }
         });
 
-        Query query = firebaseFirestore.collection("Restaurant").document(firebaseUser.getUid()).collection("Pending order");
-        FirestoreRecyclerOptions<firebasemodel> allList = new FirestoreRecyclerOptions.Builder<firebasemodel>().setQuery(query,firebasemodel.class).build();
 
+        setUpRecyclerView();
 
-
-
+/*
            pendingAdapter = new FirestoreRecyclerAdapter<firebasemodel, listViewHolder>(allList){
                @Override
                 protected void onBindViewHolder(@NonNull listViewHolder listViewHolder, int i, @NonNull firebasemodel firebasemodel) {
@@ -70,18 +76,66 @@ public class ngodashboard extends AppCompatActivity {
                 return new listViewHolder(view);
             }
 
-        };
+        };*/
 
 
         ngorecView = findViewById(R.id.ngodashrec);
         ngorecView.setHasFixedSize(true);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this,RecyclerView.VERTICAL,false);
         ngorecView.setLayoutManager(layoutManager);
-        ngorecView.setAdapter(pendingAdapter );
+        ngorecView.setAdapter(adapter );
 
     }
 
-    public class listViewHolder extends RecyclerView.ViewHolder
+
+
+    private void setUpRecyclerView(){
+        Query query = firebaseFirestore.collection("Ngo Pending List");
+        // getting query into adapter
+        FirestoreRecyclerOptions<firebasemodel> allList = new FirestoreRecyclerOptions.Builder<firebasemodel>().setQuery(query,firebasemodel.class).build();
+
+        adapter = new firebaseAdapter(allList);
+
+        // method to setup recycler view
+
+        ngorecView = findViewById(R.id.ngodashrec);
+        ngorecView.setHasFixedSize(true);
+        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this,RecyclerView.VERTICAL,false);
+        ngorecView.setLayoutManager(layoutManager);
+        ngorecView.setAdapter(adapter );
+
+        new ItemTouchHelper(new ItemTouchHelper.SimpleCallback(0,ItemTouchHelper.LEFT | ItemTouchHelper.RIGHT) {
+            @Override
+            public boolean onMove(@NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder, @NonNull RecyclerView.ViewHolder target) {
+                return false;
+            }
+
+            @Override
+            public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction) {
+
+
+
+                new AlertDialog.Builder(viewHolder.itemView.getContext())
+                        .setMessage("Are you sure you want to delete?")
+                        .setPositiveButton("YES", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                //  position of the item to be deleted
+                                int position = viewHolder.getAdapterPosition();
+                                // removing this item from the adapter
+                                adapter.deleteItem(position);
+                                Toast.makeText(ngodashboard.this, "Successfully Deleted", Toast.LENGTH_SHORT).show();
+                            }
+                        }).setNegativeButton("NO", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        adapter.notifyItemChanged(viewHolder.getAdapterPosition());
+                    }
+                }).create().show();
+            }
+        }).attachToRecyclerView(ngorecView);
+    }
+ /*   public class listViewHolder extends RecyclerView.ViewHolder
     {
 
         TextView food, foodType,Ptime;
@@ -93,20 +147,20 @@ public class ngodashboard extends AppCompatActivity {
             Ptime = itemView.findViewById(R.id.perish_time_rec);
 
         }
-    }
+    }*/
 
 
     @Override
     protected void onStart() {
         super.onStart();
-        pendingAdapter.startListening();
+        adapter.startListening();
     }
     @Override
     protected void onStop() {
         super.onStop();
-        if(pendingAdapter!= null)
+        if(adapter!= null)
         {
-            pendingAdapter.startListening();
+            adapter.startListening();
         }
     }
 }
